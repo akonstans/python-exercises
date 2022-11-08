@@ -1,15 +1,43 @@
 # First we need to import the students dictionary into our file
-import students
+from students import students
 # Now we can code
 
 # How many students are there?
-num_students = 
+print(len(students))
+num_students = len(students)
 # How many students prefer light coffee? 
+coffeepref = [n['coffee_preference'] for n in students if n['coffee_preference'] == 'light']
+print(coffeepref.count('light'))
 # For each type of coffee roast?
+totalpref = [n['coffee_preference'] for n in students]
+light = totalpref.count('light')
+medium = totalpref.count('medium')
+dark = totalpref.count('dark')
+print(light, medium, dark)
 # How many types of each pet are there?
+horse_count = 0
+cat_count = 0
+dog_count = 0
+pets = list(n['pets'] for n in students)
+for n in range(len(pets)):
+    i = pets[n]
+    for x in i:
+        if x['species'] == 'horse':
+            horse_count += 1
+        elif x['species'] == 'cat':
+            cat_count += 1
+        else:
+            dog_count += 1
+
+print(horse_count, cat_count, dog_count)
 # How many grades does each student have? 
+grades_amt = [len(n["grades"]) for n in students]
+print(grades_amt)
 # Do they all have the same number of grades?
+## YES THEY DO
 # What is each student's grade average
+grade = [sum(n['grades'])/len(n['grades']) for n in students]
+print(grade)
 # How many pets does each student have?
 # How many students are in web development? data science?
 # What is the average number of pets for students in web development?
