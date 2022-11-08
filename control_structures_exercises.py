@@ -76,19 +76,97 @@ while posint >= 1:
 
 num = input('positive number')
 num = int(num)
-num = 8
-while num >= 1:
-    print(num)
-    num -= 1
-    if num < 1:
-        break
+if num > 0:
+    while num >= 1:
+        print(num)
+        num -= 1
+        if num < 1:
+            break
+else:
+    print('invalid number')
 
 numby =input('positive number')
 numby = int(numby)
 o = 0
-numby = 5
-if numby >= 0:
-    print(range(o, numby))
+if numby > 0:
+    while o <= numby:
+        if numby > 0:
+            print(o)
+            o += 1
+            if o > numby:
+                break
 else:
     print('invalid number')
 
+odds = [x for x in range(50) if x % 2 == 1]
+
+
+def odd_loop(start_at, end_at):
+    for num in range(start_at, end_at + 1, 2):
+        print(f'Here is an odd integer:{num:>3}')
+
+def check_user_number():
+    user_input = input('Enter an odd number less than 50: ')
+    
+    while True:
+        if user_input.isdigit() == False:
+            print(f'{user_input} is not a number')
+            break
+
+        user_input = int(user_input)
+        
+        if user_input not in odds:
+            print(f'{user_input} is not an odd number')
+            break
+            
+        if user_input > 1:
+            odd_loop(1, user_input - 2)
+
+        print(f'Yikes! Skipping number:{user_input:>3}')
+
+        if user_input < 49:
+            odd_loop(user_input + 2, 49)
+            
+        user_input = input('Enter another odd number less than 50: ')
+        
+check_user_number()
+
+for num in range(1, 101):
+    fibu = ''
+    if num % 3 == 0:
+        fibu += 'Fizz'
+    if num % 5 == 0:
+        fibu += 'Buzz'
+    if not fibu:
+        fibu = num
+    print(fibu)
+
+def square(i):
+    return i*i
+def cube(i):
+    return i*i*i
+  
+def table():
+    start = 1
+    end=input("What number would you like to go up to? ")
+    end = int(end)
+    
+    
+    print("======\t\t=====\t\t=====")
+    print("Number\t\tSquare\t\tCubed")
+    print("======\t\t=====\t\t=====")
+      
+    for i in range(start,end+1):
+        print(i,"\t\t",square(i),"\t\t",cube(i))
+        
+    while True:
+        a = input("Continue? yes/no ")
+        if a=="yes":
+            print("Enter a new number")
+            continue
+        elif a=="no":
+            print("Stopping")
+            break
+        else:
+            print("Enter either yes/no")
+table()
